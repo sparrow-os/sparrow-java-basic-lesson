@@ -1,5 +1,3 @@
-import com.sun.tools.internal.ws.wsdl.document.soap.SOAPUse;
-
 public class WrapTypeDemo {
     public static void main(String[] args) throws InterruptedException {
         int userId = getUserId();
