@@ -5,6 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>sparrow-servlet-0.1</module>
+        <module>sparrow-spring-boot</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
