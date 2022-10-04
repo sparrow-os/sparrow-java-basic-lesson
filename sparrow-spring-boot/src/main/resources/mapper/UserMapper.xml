@@ -4,17 +4,21 @@
 
     <resultMap type="com.sparrow.passport.entity.User" id="UserMap">
         <result property="user_id" column="userId" jdbcType="INTEGER"/>
-        <result property="user_name" column="userName" jdbcType="VARCHAR"/>
+        <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+        <result property="nickName" column="nick_name" jdbcType="VARCHAR"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
         <result property="password" column="password" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--查询单个-->
-    <select id="queryByUserName" resultMap="UserMap">
+    <select id="queryByUserName" parameterType="String" resultMap="UserMap">
         select user_id,
                user_name,
-               password
-        from user
-        where id = #{id}
+               password,
+               nick_name,
+               email
+        from `user`
+        where user_name = #{userName}
     </select>
 </mapper>
 

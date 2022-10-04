@@ -1,5 +1,6 @@
 package com.sparrow.passport.controller;
 
+import com.alibaba.druid.util.StringUtils;
 import com.sparrow.passport.entity.User;
 import com.sparrow.passport.mybatis.dao.UserMybatisDao;
 import org.slf4j.Logger;
@@ -12,13 +13,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
     private static Logger logger = LoggerFactory.getLogger(LoginController.class);
-
     @Autowired
     private UserMybatisDao userMybatisDao;
 
     @PostMapping("/login")
     public String login(@RequestBody User user) {
+        if (StringUtils.isEmpty(user.getUserName())) {
+            return "user name is empty";
+        }
+        if (StringUtils.isEmpty(user.getPassword())) {
+            return "password is empty";
+        }
         logger.info(user.getUserName());
-        return "hello world";
+        User oldUser = this.userMybatisDao.queryByUserName(user.getUserName());
+        if (oldUser == null) {
+            return "user not found!!";
+        }
+        if (!user.getPassword().equals(oldUser.getPassword())) {
+            return "password not match";
+        }
+        return "login successful";
     }
 }
