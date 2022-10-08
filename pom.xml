@@ -6,6 +6,9 @@
     <modules>
         <module>sparrow-servlet-0.1</module>
         <module>sparrow-spring-boot</module>
+        <module>sparrow-spring-boot-shiro</module>
+        <module>sparrow-spring-boot-shiro-redis</module>
+
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

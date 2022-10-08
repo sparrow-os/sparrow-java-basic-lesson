@@ -51,6 +51,7 @@
     <!--        <url-pattern>/qrcode</url-pattern>-->
     <!--    </servlet-mapping>-->
 
+
     <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>com.sparrow.passport.servlet.LoginServlet</servlet-class>
