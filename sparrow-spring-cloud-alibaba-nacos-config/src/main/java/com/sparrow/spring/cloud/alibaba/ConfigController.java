@@ -3,7 +3,6 @@ package com.sparrow.spring.cloud.alibaba;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ConfigController {
 
     @Value("${name:zhangsan}")
-    private String useLocalCache;
+    private String name;
 
     @Autowired
     SparrowProperties sparrowProperties;
@@ -23,6 +22,6 @@ public class ConfigController {
      */
     @RequestMapping("/get")
     public String get() {
-        return useLocalCache + "property's key" + this.sparrowProperties.getName();
+        return name + "property's key" + this.sparrowProperties.getName();
     }
 }

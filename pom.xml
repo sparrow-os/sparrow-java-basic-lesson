@@ -2,21 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <modules>
-        <module>sparrow-servlet-0.1</module>
-        <module>sparrow-spring-boot</module>
-        <module>sparrow-spring-boot-shiro</module>
-        <module>sparrow-spring-boot-shiro-redis</module>
-        <module>sparrow-spring-cloud-alibaba</module>
-
-    </modules>
-
-    <properties>
-        <spring-boot-dependencies.version>2.3.12.RELEASE</spring-boot-dependencies.version>
-        <spring-cloud-dependencies.version>Hoxton.SR5</spring-cloud-dependencies.version>
-        <spring-cloud-alibaba-dependencies.version>2.2.8.RELEASE</spring-cloud-alibaba-dependencies.version>
-    </properties>
+    <groupId>com.sparrow.java.lession</groupId>
+    <artifactId>sparrow-java-lession</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -24,10 +12,23 @@
         <relativePath/>
     </parent>
     <packaging>pom</packaging>
-    <groupId>com.sparrow.java.lession</groupId>
-    <artifactId>sparrow-java-lession</artifactId>
-    <version>1.0-SNAPSHOT</version>
 
+    <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>sparrow-servlet-0.1</module>
+        <module>sparrow-spring-boot</module>
+        <module>sparrow-spring-boot-shiro</module>
+        <module>sparrow-spring-boot-shiro-redis</module>
+        <module>sparrow-spring-cloud-alibaba-nacos-config</module>
+        <module>sparrow-spring-cloud-alibaba-nacos-dubbo</module>
+        <module>sparrow-spring-cloud-gateway</module>
+    </modules>
+    <properties>
+        <jaxrs.version>3.12.1.Final</jaxrs.version>
+        <spring-boot-dependencies.version>2.2.5.RELEASE</spring-boot-dependencies.version>
+        <spring-cloud-dependencies.version>Hoxton.SR3</spring-cloud-dependencies.version>
+        <spring-cloud-alibaba-dependencies.version>2.2.1.RELEASE</spring-cloud-alibaba-dependencies.version>
+    </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
