@@ -7,7 +7,7 @@ dubbo:
       port: -1
     rest:
       name: rest
-      port: 8099
+      port: 8088
       server: netty
   registry:
     address: nacos://localhost:8848

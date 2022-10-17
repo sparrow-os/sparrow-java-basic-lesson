@@ -8,3 +8,7 @@ https://sparrowzoo.feishu.cn/drive/folder/fldcnq4HSou8VzzxaV5j0R97TWg
 # release node
 1. add shiro 10.6
 2. add gateway + dubbo +nacos 10.10
+
+志哥微信
+---
+![wechar](img.png)
