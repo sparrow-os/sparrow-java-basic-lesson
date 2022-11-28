@@ -5,7 +5,7 @@
 
 package com.sparrow.spring.cloud.alibaba.api;
 
-public interface RestService {
+public interface DubboService {
     String test(String var1);
 
     LoginParam login(LoginParam var1);

@@ -12,10 +12,11 @@ public class DubboApplication {
 
     public static void main(String[] args) {
         /**
-         * 必须disable dubbo
+         * 必须disable
+         * dubbo
          */
         new SpringApplicationBuilder(DubboApplication.class)
-            .web(WebApplicationType.NONE)
+            .web(WebApplicationType.SERVLET)
             .run(args);
     }
 }
