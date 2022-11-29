@@ -20,5 +20,9 @@
         from `user`
         where user_name = #{userName}
     </select>
+
+    <update id="updateUser" parameterType="com.sparrow.protocol.dao.StatusCriteria">
+        update `user` set status=${statusCriteria.status}
+    </update>
 </mapper>
 
