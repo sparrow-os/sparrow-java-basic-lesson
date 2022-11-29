@@ -3,6 +3,9 @@ package com.sparrow.passport.controller;
 import com.alibaba.druid.util.StringUtils;
 import com.sparrow.passport.entity.User;
 import com.sparrow.passport.mybatis.dao.UserMybatisDao;
+import com.sparrow.protocol.dao.StatusCriteria;
+import com.sparrow.protocol.enums.StatusRecord;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,8 @@ public class LoginController {
         }
         logger.info(user.getUserName());
         User oldUser = this.userMybatisDao.queryByUserName(user.getUserName());
+        StatusCriteria statusCriteria=new StatusCriteria("64,65",StatusRecord.DESTROYED);
+        userMybatisDao.updateUser(statusCriteria);
         if (oldUser == null) {
             return "user not found!!";
         }

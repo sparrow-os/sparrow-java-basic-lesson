@@ -22,7 +22,12 @@
     </select>
 
     <update id="updateUser" parameterType="com.sparrow.protocol.dao.StatusCriteria">
-        update `user` set status=${statusCriteria.status}
+        update `user`
+        set status=#{statusCriteria.status}
+        where user_id in
+        <foreach item="item" index="index" collection="statusCriteria.ids.split(',')" open="(" separator="," close=")">
+            #{item}
+        </foreach>
     </update>
 </mapper>
 
