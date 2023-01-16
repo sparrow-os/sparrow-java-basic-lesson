@@ -5,10 +5,11 @@ public class WrapTypeDemo {
     }
 
     private static Integer getUserId() throws InterruptedException {
-        Thread.sleep(Integer.MAX_VALUE);
+        //Thread.sleep(Integer.MAX_VALUE);
         //from database
         //from rpc
         //from http
-        return 0;
+        //return 0;
+        return null;
     }
 }

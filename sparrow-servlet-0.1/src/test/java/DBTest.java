@@ -3,11 +3,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Test2 {
+public class DBTest {
     public static void main(String[] args) throws SQLException {
         //JDBCUtils.executeSql("SELECT 1;");
         Connection connection = JDBCUtils.getConnection();
-        ResultSet rs = JDBCUtils.query(connection, "SELECT user_name,`password` FROM `user` WHERE user_name='zhangsan'");
+        ResultSet rs = JDBCUtils.query(connection, "SELECT user_name,`password` FROM `user` WHERE user_name='admin'");
         try {
             if (rs != null) {
                 while (rs.next()) {

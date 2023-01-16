@@ -11,11 +11,12 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sun.security.provider.MD5;
 
 public class LoginServlet implements Servlet {
     private static Logger logger = LoggerFactory.getLogger(LoginServlet.class);
 
-    @Override public void init(ServletConfig config) throws ServletException {
+    @Override public void init(ServletConfig config) {
         logger.info("init");
     }
 
@@ -24,15 +25,16 @@ public class LoginServlet implements Servlet {
     }
 
     @Override
-    public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+    public void service(ServletRequest request, ServletResponse response) throws IOException {
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
+        //todo password= //MD5 加密
         logger.info("userName={}", userName);
         logger.info("password={}", password);
-        UserDao userDao = new UserDao();
+        UserDao userDao = UserDao.getInstance();
         User user = null;
         try {
-            user = userDao.getUserByUserName(userName,password);
+            user = userDao.getUserByUserName(userName);
         } catch (SQLException ex) {
             logger.error("query user by user name error", ex);
         }
@@ -41,12 +43,11 @@ public class LoginServlet implements Servlet {
             response.getWriter().write("user  not found");
             return;
         }
-//        if (!user.getPassword().equals(password)) {
-//            logger.error("user password not match, 用户输入的密码为{}，数据库密码为{}", password, user.getPassword());
-//            response.getWriter().write("user password not match");
-//
-//            return;
-//        }
+        if (!user.getPassword().equals(password)) {
+            logger.error("user password not match, 用户输入的密码为{}，数据库密码为{}", password, user.getPassword());
+            response.getWriter().write("user password not match");
+            return;
+        }
         response.getWriter().write("user login successful");
     }
 

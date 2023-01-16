@@ -1,10 +1,8 @@
-package com.sparrow.passport.demo;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Test {
-    private static Logger logger = LoggerFactory.getLogger(Test.class);
+public class ReturnVsException {
+    private static Logger logger = LoggerFactory.getLogger(ReturnVsException.class);
 
     public static void main(String[] args) throws Exception {
         logger.info("info");
@@ -18,7 +16,7 @@ public class Test {
         } catch (RuntimeException e) {
             System.err.println("error ");
 //            return 0;
-             throw new Exception("aaa");
+            throw new Exception("aaa");
         }
     }
 }

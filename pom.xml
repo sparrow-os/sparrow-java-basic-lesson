@@ -27,7 +27,8 @@
         <jaxrs.version>3.12.1.Final</jaxrs.version>
         <spring-boot-dependencies.version>2.2.5.RELEASE</spring-boot-dependencies.version>
         <spring-cloud-dependencies.version>Hoxton.SR3</spring-cloud-dependencies.version>
-        <spring-cloud-alibaba-dependencies.version>2.2.1.RELEASE</spring-cloud-alibaba-dependencies.version>
+        <spring-cloud-alibaba-dependencies.version>2.2.2.RELEASE</spring-cloud-alibaba-dependencies.version>
+    <!--spring cloud alibaba 2.2.8 移除dubbo-->
     </properties>
     <dependencyManagement>
         <dependencies>

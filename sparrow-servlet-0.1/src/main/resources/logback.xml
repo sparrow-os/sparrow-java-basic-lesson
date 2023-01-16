@@ -6,7 +6,6 @@
             <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-5level %thread %logger{0} %m%n</pattern>
         </layout>
     </appender>
-
     <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_HOME}/error.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -26,7 +25,6 @@
             <MaxFileSize>10MB</MaxFileSize>
         </triggeringPolicy>
     </appender>
-
     <appender name="WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_HOME}/warn.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -46,7 +44,6 @@
             <MaxFileSize>10MB</MaxFileSize>
         </triggeringPolicy>
     </appender>
-
     <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_HOME}/info.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -66,8 +63,6 @@
             <MaxFileSize>10MB</MaxFileSize>
         </triggeringPolicy>
     </appender>
-
-
     <appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_HOME}/debug.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -87,12 +82,9 @@
             <MaxFileSize>10MB</MaxFileSize>
         </triggeringPolicy>
     </appender>
-
-
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
-
     <logger name="com.sparrow" level="DEBUG" additivity="false">
         <appender-ref ref="DEBUG"/>
         <appender-ref ref="INFO"/>

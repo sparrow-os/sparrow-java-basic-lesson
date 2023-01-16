@@ -13,6 +13,8 @@ dubbo:
     address: nacos://localhost:8848
 #    https://github.com/apache/dubbo/issues/6645 dubbo bug
     use-as-config-center: false
+#    parameters:
+#        namespace: ${name-space} #名字空间
   consumer:
     timeout: 5000
     check: false

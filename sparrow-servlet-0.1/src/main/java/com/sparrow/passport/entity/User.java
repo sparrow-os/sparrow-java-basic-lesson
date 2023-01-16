@@ -1,7 +1,7 @@
 package com.sparrow.passport.entity;
 
 public class User {
-    private long userId;
+    private Long userId;//int  unsigned
     private String userName;
     private String password;
 

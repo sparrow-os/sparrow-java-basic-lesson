@@ -1,0 +1,45 @@
+2023-01-15 09:50:13.548 TRACE_ID ERROR main JDBCUtils get connection error url is jdbc:mysql://127.0.0.1/sparrow?useSSL=false&autoReconnect=true&failOverReadOnly=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+java.lang.ClassNotFoundException: com.mysql.cj.jdbc.Driver
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:355)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at com.sparrow.passport.utils.JDBCUtils.getConnection(JDBCUtils.java:21)
+	at DBTest.main(DBTest.java:9)
+2023-01-15 09:50:24.375 TRACE_ID ERROR main JDBCUtils  get connection is null
+2023-01-15 10:41:45.032 TRACE_ID ERROR http-bio-8888-exec-1 LoginServlet [null] user not found!
+2023-01-15 10:42:58.487 TRACE_ID ERROR http-bio-8888-exec-3 LoginServlet [admin] user not found!
+2023-01-15 10:43:36.640 TRACE_ID ERROR http-bio-8888-exec-5 LoginServlet [admin] user not found!
+2023-01-15 10:44:56.076 TRACE_ID ERROR http-bio-8888-exec-7 LoginServlet [admin] user not found!
+2023-01-15 10:50:21.359 TRACE_ID ERROR http-bio-8888-exec-1 UserDao get user error 
+java.sql.SQLException: Column 'user_id' not found.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.result.ResultSetImpl.findColumn(ResultSetImpl.java:584)
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getLong(ResultSetImpl.java:862)
+	at com.sparrow.passport.dao.UserDao.getUserByUserName(UserDao.java:27)
+	at com.sparrow.passport.servlet.LoginServlet.service(LoginServlet.java:35)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:218)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:505)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:958)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:452)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1087)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:637)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:316)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2023-01-15 10:50:23.757 TRACE_ID ERROR http-bio-8888-exec-1 LoginServlet [admin] user not found!
+2023-01-15 17:18:24.167 TRACE_ID ERROR http-bio-8888-exec-4 LoginServlet [222] user not found!
+2023-01-15 17:19:02.331 TRACE_ID ERROR http-bio-8888-exec-5 LoginServlet user password not match, 用户输入的密码为111111，数据库密码为96E79218965EB72C92A549DD5A330112

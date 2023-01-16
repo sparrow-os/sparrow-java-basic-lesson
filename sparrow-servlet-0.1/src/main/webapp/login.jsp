@@ -2,10 +2,6 @@
 <html>
 <head>
     <title>用户登录-麻雀窝</title>
-    <meta content="P2P " name="keywords"/>
-    <meta content="麻雀窝提供" name="description"/>
-    <meta name="application-name" content="麻雀窝"/>
-    <meta name="msapplication-tooltip" content="麻雀窝"/>
     <link rel="stylesheet" type="text/css" href="http://r.sparrowzoo.net/styles/pure-css/pure-min.css?v=1.0"/>
     <!--[if lte IE 8]>
     <link rel="stylesheet" type="text/css" href="http://r.sparrowzoo.net/styles/layouts-old-ie.css?v=1.0"/>
@@ -30,7 +26,7 @@
 </div>
 
 <div class="content">
-    <form action="/login.do" method="post" class="pure-form pure-form-aligned">
+    <form action="/login" method="post" class="pure-form pure-form-aligned">
         <fieldset>
             <div class="pure-control-group">
                 <label for="txtUserName">

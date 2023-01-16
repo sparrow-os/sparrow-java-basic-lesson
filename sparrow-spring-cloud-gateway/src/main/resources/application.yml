@@ -6,11 +6,21 @@ spring:
           lowerCaseServiceId: true
           enabled: true
       routes:
-        - id: sparrow-rest
+#        - id: sparrow-rest
+#          uri: lb://sparrow-dubbo
+#          predicates:
+#            - Path=/api-rest/**
+#          filters:
+#            - StripPrefix=1
+#            - AddRequestHeader=Accept,application/json
+#            - AddResponseHeader=Accept,application/json
+        - id: sparrow-rest2
           uri: lb://sparrow-dubbo
           predicates:
-            - Path=/api-rest/**
+            - Path=/**
+            - Host= dubbo.sparrowzoo.com:9900
           filters:
             - StripPrefix=1
             - AddRequestHeader=Accept,application/json
             - AddResponseHeader=Accept,application/json
+

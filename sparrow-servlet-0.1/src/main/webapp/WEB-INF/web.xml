@@ -4,17 +4,6 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-    <!--ioc 容器的location地址 可以缺省，默认为beans.xml 不要加classpath:-->
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/sparrow_application_context.xml</param-value>
-    </context-param>
-    <!--默认的全局配置文件 可以缺少，默认为 /system_config.properties 不要加classpath:-->
-    <context-param>
-        <param-name>configLocation</param-name>
-        <param-value>/system_config.properties</param-value>
-    </context-param>
-
 
     <!-- 请求编码过滤器 -->
     <!--    <filter>-->
@@ -58,7 +47,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
-        <url-pattern>/login.do</url-pattern>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <session-config>
         <!-- session超时时间单位为分钟 -->
