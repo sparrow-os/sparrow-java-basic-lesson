@@ -6,14 +6,14 @@ spring:
           lowerCaseServiceId: true
           enabled: true
       routes:
-#        - id: sparrow-rest
-#          uri: lb://sparrow-dubbo
-#          predicates:
-#            - Path=/api-rest/**
-#          filters:
-#            - StripPrefix=1
-#            - AddRequestHeader=Accept,application/json
-#            - AddResponseHeader=Accept,application/json
+        #        - id: sparrow-rest
+        #          uri: lb://sparrow-dubbo
+        #          predicates:
+        #            - Path=/api-rest/**
+        #          filters:
+        #            - StripPrefix=1
+        #            - AddRequestHeader=Accept,application/json
+        #            - AddResponseHeader=Accept,application/json
         - id: sparrow-rest2
           uri: lb://sparrow-dubbo
           predicates:
@@ -23,4 +23,26 @@ spring:
             - StripPrefix=1
             - AddRequestHeader=Accept,application/json
             - AddResponseHeader=Accept,application/json
-
+        - id: red-packet-0
+          uri: lb://red-packet-0
+          predicates:
+            - RedPacketId=id,0,2
+            - Path= /red-packet/**
+          filters:
+            - StripPrefix=1
+            - AddRequestHeader=Accept,application/json
+            - AddResponseHeader=Accept,application/json
+        - id: red-packet-1
+          uri: lb://red-packet-1
+          predicates:
+            - RedPacketId=id,1,2
+            - Path=/red-packet/**
+          filters:
+            - StripPrefix=1
+            - AddRequestHeader=Accept,application/json
+            - AddResponseHeader=Accept,application/json
+# 与 lb://red-packet-0 保持一致
+red-packet-0:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.BestAvailableRule
+    NFLoadBalancerPingClassName: com.sparrow.spring.cloud.alibaba.HealthExamination
