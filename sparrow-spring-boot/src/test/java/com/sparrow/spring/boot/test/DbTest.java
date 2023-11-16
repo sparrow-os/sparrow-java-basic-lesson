@@ -1,9 +1,11 @@
+package com.sparrow.spring.boot.test;
+
 import com.sparrow.passport.utils.JDBCUtils;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Test2 {
+public class DbTest {
     public static void main(String[] args) throws SQLException {
         //JDBCUtils.executeSql("SELECT 1;");
         Connection connection = JDBCUtils.getConnection();

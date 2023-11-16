@@ -4,10 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>com.sparrow.java.lession</groupId>
-        <artifactId>sparrow-java-lession</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <groupId>com.sparrowzoo</groupId>
+        <artifactId>sparrow-bom</artifactId>
+        <version>1.0.3.1-RELEASE</version>
+        <relativePath/>
     </parent>
+
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.sparrow.java.lession</groupId>
@@ -28,7 +30,6 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
         </dependency>
 
         <dependency>
@@ -41,28 +42,42 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>2.0.9</version>
+        </dependency>
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.21</version>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.1.4</version>
         </dependency>
         <dependency>
-            <groupId>com.sparrow</groupId>
+            <groupId>com.sparrowzoo</groupId>
             <artifactId>sparrow-protocol-dao</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.sparrowzoo</groupId>
+            <artifactId>sparrow-commons</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <!--            <scope>provided</scope>-->
+        </dependency>
+
+        <dependency>
+                    <groupId>com.sparrow</groupId>
+                    <artifactId>sparrow-starter</artifactId>
+                    <version>1.0-SNAPSHOT</version>
+                </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -82,7 +97,14 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>com.sparrow.passport.SparrowApplication</mainClass>
+                    <excludes>
+                        <exclude>
+                            <groupId>com.alibaba</groupId>
+                            <artifactId>druid</artifactId>
+                        </exclude>
+                    </excludes>
                 </configuration>
+
                 <executions>
                     <execution>
                         <goals>

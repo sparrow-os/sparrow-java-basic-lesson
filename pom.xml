@@ -22,6 +22,8 @@
         <module>sparrow-spring-cloud-alibaba-nacos-config</module>
         <module>sparrow-spring-cloud-alibaba-nacos-dubbo</module>
         <module>sparrow-spring-cloud-gateway</module>
+        <module>sparrow-commons</module>
+        <module>sparrow-starter</module>
     </modules>
     <properties>
         <jaxrs.version>3.12.1.Final</jaxrs.version>

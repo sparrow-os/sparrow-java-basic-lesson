@@ -1,4 +1,4 @@
-package com.sparrow.passport.demo;
+package com.sparrow.spring.demo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,7 @@ public class Test {
         } catch (RuntimeException e) {
             System.err.println("error ");
 //            return 0;
-             throw new Exception("aaa");
+            throw new Exception("aaa");
         }
     }
 }

@@ -1,16 +1,8 @@
 package com.sparrow.passport.shiro;
 
-import com.sparrow.passport.dao.UserDao;
 import com.sparrow.passport.entity.User;
 import com.sparrow.passport.mybatis.dao.UserMybatisDao;
-import com.sparrow.protocol.LoginToken;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.IncorrectCredentialsException;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
-import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;

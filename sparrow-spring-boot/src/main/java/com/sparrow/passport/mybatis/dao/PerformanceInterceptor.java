@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
+
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -23,7 +24,6 @@ import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
  * MyBatis 性能拦截器，用于输出每条 SQL 语句及其执行时间
- *
  */
 @Intercepts({
         @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}),
@@ -72,25 +72,26 @@ public class PerformanceInterceptor implements Interceptor {
         String sql = boundSql.getSql().replaceAll("[\\s]+", " ");
         List<ParameterMapping> parameterMappings = boundSql.getParameterMappings();
         TypeHandlerRegistry typeHandlerRegistry = configuration.getTypeHandlerRegistry();
-        if (parameterMappings != null) {
-            for (int i = 0; i < parameterMappings.size(); i++) {
-                ParameterMapping parameterMapping = parameterMappings.get(i);
-                if (parameterMapping.getMode() != ParameterMode.OUT) {
-                    Object value;
-                    String propertyName = parameterMapping.getProperty();
-                    if (boundSql.hasAdditionalParameter(propertyName)) {
-                        value = boundSql.getAdditionalParameter(propertyName);
-                    } else if (parameterObject == null) {
-                        value = null;
-                    } else if (typeHandlerRegistry.hasTypeHandler(parameterObject.getClass())) {
-                        value = parameterObject;
-                    } else {
-                        MetaObject metaObject = configuration.newMetaObject(parameterObject);
-                        value = metaObject.getValue(propertyName);
-                    }
-                    sql = replacePlaceholder(sql, value);
-                }
+        if (parameterMappings == null) {
+            return sql;
+        }
+        for (ParameterMapping parameterMapping : parameterMappings) {
+            if (parameterMapping.getMode() == ParameterMode.OUT) {
+                continue;
             }
+            Object value;
+            String propertyName = parameterMapping.getProperty();
+            if (boundSql.hasAdditionalParameter(propertyName)) {
+                value = boundSql.getAdditionalParameter(propertyName);
+            } else if (parameterObject == null) {
+                value = null;
+            } else if (typeHandlerRegistry.hasTypeHandler(parameterObject.getClass())) {
+                value = parameterObject;
+            } else {
+                MetaObject metaObject = configuration.newMetaObject(parameterObject);
+                value = metaObject.getValue(propertyName);
+            }
+            sql = replacePlaceholder(sql, value);
         }
         return sql;
     }
